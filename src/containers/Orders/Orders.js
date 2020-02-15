@@ -36,7 +36,7 @@ const mapStatetoProps = (state)=>{
 }
 const mapDispatchToProps = (dispatch)=>{
     return {
-        onFetchOrders : (token,userId)=> dispatch(actions.fetchOrders(token,userId)),
+        onFetchOrders : (token,userId)=> dispatch(actions.fetchOrders(token,userId))
     }
 }
 export default connect(mapStatetoProps,mapDispatchToProps)(withErrorHandler(Orders,axios))

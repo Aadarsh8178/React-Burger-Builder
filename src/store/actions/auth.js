@@ -20,18 +20,27 @@ export const authFail = (error)=>{
     }
 }
 export const logout = ()=>{
-    localStorage.removeItem('token');
-    localStorage.removeItem('expirationDate');
-    localStorage.removeItem('userId');
+    // localStorage.removeItem('token');
+    // localStorage.removeItem('expirationDate');
+    // localStorage.removeItem('userId');
+    return {
+        type:actionType.AUTH_LOGOUT_INITIATE
+    }
+}
+export const authLogoutSuccedd = () =>{
     return {
         type:actionType.AUTH_LOGOUT
     }
 }
 export const checkAuthTimeout = (expiresIn)=>{
-    return dispatch =>{
-        setTimeout(()=>{
-            dispatch(logout())
-        },expiresIn*1000)
+    // return dispatch =>{
+    //     setTimeout(()=>{
+    //         dispatch(logout())
+    //     },expiresIn*1000)
+    // }
+    return {
+        type:actionType.AUTH_CHECK_TIMEOUT,
+        expirationTime:expiresIn
     }
 }
 export const auth = (email,password,isSignup)=>{
